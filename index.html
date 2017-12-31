@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CORS</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$("#root").click(function(){
+			    $.get("http://localhost:5000", function(data){
+				$("#result-root").html(data);
+			    });
+			});
+
+			$("#yourConfiguration").click(function(){
+			    $.get("http://localhost:5000/yourConfiguration", function(data){
+				$("#result-yourConfiguration").html(data);
+			    });
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<div id="result-root">
+		    <h1>Content Root</h1>
+		</div>
+		<br /><br />
+			
+		<div id="result-yourConfiguration">
+		    <h1>Content Configuration</h1>
+		</div>
+		<button type="button" id="root">Get Content - Root page</button>
+		<button type="button" id="yourConfiguration">Get Content - Configuration</button>
+	</body>
+</html>
+
+
