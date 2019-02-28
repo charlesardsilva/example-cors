@@ -32,7 +32,7 @@ It will execute in: http://localhost:8000
 
 How it works
 -------------
-There are two buttons:
+There are three buttons:
 
 Get Content - Root page => Get Data from http://localhost:5000/
 
