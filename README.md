@@ -36,7 +36,11 @@ There are two buttons:
 
 Get Content - Root page => Get Data from http://localhost:5000/
 
-Get Content - Configuration => Get Data from http://localhost:5000/yourConfiguration
-If your want do tests, change the configuration CORS (method your_configuration) in app.py and use this button.
+Get Content - Configuration => Get Data from http://localhost:5000/content
+This endpoint container a configuratin to allow a specific host make a request.
+
+Get Content Preflighted - Configuration => Get Data from http://localhost:5000/contentPreflighted
+This endpoint container a configuratin to allow a specific host and specific header to make a request.
+This is nice to test Preflighted behaviour
 
 
