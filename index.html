@@ -7,30 +7,48 @@
 		<script type="text/javascript">
 		$(document).ready(function(){
 			$("#root").click(function(){
-			    $.get("http://localhost:5000", function(data){
-				$("#result-root").html(data);
-			    });
+				$.ajax({
+					 url: "http://localhost:5000/",
+					 type: "GET",
+					 success: function(data) { $("#result-root").html(data); }
+				});
 			});
 
-			$("#yourConfiguration").click(function(){
-			    $.get("http://localhost:5000/yourConfiguration", function(data){
-				$("#result-yourConfiguration").html(data);
-			    });
+			$("#buttonContent").click(function(){
+				$.ajax({
+					 url: "http://localhost:5000/content",
+					 type: "GET",
+					 success: function(data) { $("#result-content").html(data); }
+				});
+			});
+
+			$("#buttonContentPreflighted").click(function(){
+				$.ajax({
+					 url: "http://localhost:5000/contentP",
+					 type: "GET",
+					 beforeSend: function(xhr){xhr.setRequestHeader('X-Test-Header', 'test-value');},
+					 success: function(data) { $("#result-contentPreflighted").html(data); }
+				});
 			});
 		});
 		</script>
 	</head>
 	<body>
 		<div id="result-root">
-		    <h1>Content Root</h1>
+		    <h1>--</h1>
 		</div>
 		<br /><br />
 			
-		<div id="result-yourConfiguration">
-		    <h1>Content Configuration</h1>
+		<div id="result-content">
+		    <h1>--</h1>
 		</div>
-		<button type="button" id="root">Get Content - Root page</button>
-		<button type="button" id="yourConfiguration">Get Content - Configuration</button>
+
+		<div id="result-contentPreflighted">
+		    <h1>--</h1>
+		</div>
+		<button type="button" id="root">Get Index</button>
+		<button type="button" id="buttonContent">Get Content</button>
+		<button type="button" id="buttonContentPreflighted">Get Content Preflighted</button>
 	</body>
 </html>
 
