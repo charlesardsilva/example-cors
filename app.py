@@ -15,12 +15,20 @@ app = Flask(__name__)
 @app.route("/", methods=['GET'])
 @cross_origin()
 def helloWorld():
-    return '''<h1>Root Page!</h1>'''
+    return '''<h1>Index Page!</h1>'''
 
-@app.route("/yourConfiguration", methods=['GET'])
-@cross_origin(origins="http://xxx:8000")
-def your_configuration():
-    return '''<h1>Deny Page!</h1>'''
+@app.route("/content", methods=['GET'])
+@cross_origin(origins="http://localhost:8000")
+def get_content():
+    print 'Get Content'
+    return '''<h1>My Content</h1>'''
+
+@app.route("/contentPreflighted", methods=['GET'])
+@cross_origin(origins="http://localhost:8000", allow_headers= "X-Test-Header")
+def get_content_preflighted():
+    print 'Get Content Preflighted'
+    return '''<h1>My Content Preflighted</h1>'''
+
 
 if __name__ == "__main__":
     app.run(debug=True)
