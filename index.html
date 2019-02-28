@@ -24,7 +24,7 @@
 
 			$("#buttonContentPreflighted").click(function(){
 				$.ajax({
-					 url: "http://localhost:5000/contentP",
+					 url: "http://localhost:5000/contentPreflighted",
 					 type: "GET",
 					 beforeSend: function(xhr){xhr.setRequestHeader('X-Test-Header', 'test-value');},
 					 success: function(data) { $("#result-contentPreflighted").html(data); }
